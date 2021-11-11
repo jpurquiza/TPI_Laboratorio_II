@@ -180,5 +180,10 @@ namespace AutomotrizApp
             txtDescripcion.Text = string.Empty;
             dgvProductos.Rows.Clear();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

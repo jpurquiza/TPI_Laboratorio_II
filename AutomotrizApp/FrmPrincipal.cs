@@ -52,5 +52,14 @@ namespace AutomotrizApp
             pnlPrincipal.Controls.Add(frm);
             frm.Show();
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            pnlPrincipal.Controls.Clear();
+            FrmClientes frm = new FrmClientes();
+            frm.TopLevel = false;
+            pnlPrincipal.Controls.Add(frm);
+            frm.Show();
+        }
     }
 }

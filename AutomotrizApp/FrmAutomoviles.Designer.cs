@@ -152,6 +152,7 @@ namespace AutomotrizApp
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CRITERIOS DE BUSQUEDA";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // nudHasta
             // 
@@ -160,7 +161,7 @@ namespace AutomotrizApp
             0,
             0,
             0});
-            this.nudHasta.Location = new System.Drawing.Point(708, 32);
+            this.nudHasta.Location = new System.Drawing.Point(708, 23);
             this.nudHasta.Maximum = new decimal(new int[] {
             7000000,
             0,
@@ -183,7 +184,7 @@ namespace AutomotrizApp
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(607, 35);
+            this.lblHasta.Location = new System.Drawing.Point(607, 26);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(95, 13);
             this.lblHasta.TabIndex = 19;
@@ -192,7 +193,7 @@ namespace AutomotrizApp
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(404, 34);
+            this.lblDesde.Location = new System.Drawing.Point(404, 25);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(96, 13);
             this.lblDesde.TabIndex = 17;
@@ -205,7 +206,7 @@ namespace AutomotrizApp
             0,
             0,
             0});
-            this.nudDesde.Location = new System.Drawing.Point(505, 32);
+            this.nudDesde.Location = new System.Drawing.Point(505, 23);
             this.nudDesde.Maximum = new decimal(new int[] {
             7000000,
             0,
@@ -248,7 +249,7 @@ namespace AutomotrizApp
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(13, 35);
+            this.lblDescripcion.Location = new System.Drawing.Point(13, 30);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(80, 13);
             this.lblDescripcion.TabIndex = 13;
@@ -256,15 +257,15 @@ namespace AutomotrizApp
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(99, 32);
+            this.txtDescripcion.Location = new System.Drawing.Point(99, 27);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(293, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(233, 20);
             this.txtDescripcion.TabIndex = 12;
             // 
             // lblTransmision
             // 
             this.lblTransmision.AutoSize = true;
-            this.lblTransmision.Location = new System.Drawing.Point(249, 112);
+            this.lblTransmision.Location = new System.Drawing.Point(250, 111);
             this.lblTransmision.Name = "lblTransmision";
             this.lblTransmision.Size = new System.Drawing.Size(82, 13);
             this.lblTransmision.TabIndex = 11;
@@ -273,7 +274,7 @@ namespace AutomotrizApp
             // cboTransmision
             // 
             this.cboTransmision.FormattingEnabled = true;
-            this.cboTransmision.Location = new System.Drawing.Point(337, 109);
+            this.cboTransmision.Location = new System.Drawing.Point(338, 108);
             this.cboTransmision.Name = "cboTransmision";
             this.cboTransmision.Size = new System.Drawing.Size(121, 21);
             this.cboTransmision.TabIndex = 10;
@@ -298,7 +299,7 @@ namespace AutomotrizApp
             // lblSegmento
             // 
             this.lblSegmento.AutoSize = true;
-            this.lblSegmento.Location = new System.Drawing.Point(197, 70);
+            this.lblSegmento.Location = new System.Drawing.Point(264, 65);
             this.lblSegmento.Name = "lblSegmento";
             this.lblSegmento.Size = new System.Drawing.Size(68, 13);
             this.lblSegmento.TabIndex = 7;
@@ -307,7 +308,7 @@ namespace AutomotrizApp
             // cboSegmento
             // 
             this.cboSegmento.FormattingEnabled = true;
-            this.cboSegmento.Location = new System.Drawing.Point(271, 67);
+            this.cboSegmento.Location = new System.Drawing.Point(338, 60);
             this.cboSegmento.Name = "cboSegmento";
             this.cboSegmento.Size = new System.Drawing.Size(121, 21);
             this.cboSegmento.TabIndex = 6;
@@ -315,7 +316,7 @@ namespace AutomotrizApp
             // lblModelo
             // 
             this.lblModelo.AutoSize = true;
-            this.lblModelo.Location = new System.Drawing.Point(9, 70);
+            this.lblModelo.Location = new System.Drawing.Point(40, 66);
             this.lblModelo.Name = "lblModelo";
             this.lblModelo.Size = new System.Drawing.Size(53, 13);
             this.lblModelo.TabIndex = 5;
@@ -324,7 +325,7 @@ namespace AutomotrizApp
             // cboModelo
             // 
             this.cboModelo.FormattingEnabled = true;
-            this.cboModelo.Location = new System.Drawing.Point(68, 66);
+            this.cboModelo.Location = new System.Drawing.Point(99, 62);
             this.cboModelo.Name = "cboModelo";
             this.cboModelo.Size = new System.Drawing.Size(121, 21);
             this.cboModelo.TabIndex = 4;

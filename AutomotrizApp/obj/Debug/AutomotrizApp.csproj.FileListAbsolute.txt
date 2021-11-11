@@ -12,3 +12,4 @@ D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\Automotr
 D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmFacturas.resources
 D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmAutomoviles.resources
 D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmOrdenesPedido.resources
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmAutopartes.resources

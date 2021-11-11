@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AutomotrizApp"
   ],
-  "SelectedNode": "\\AutomotrizApp.sln",
+  "SelectedNode": "\\AutomotrizApp\\FrmClientes.cs",
   "PreviewInSolutionExplorer": false
 }

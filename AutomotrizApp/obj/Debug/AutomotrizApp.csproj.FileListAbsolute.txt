@@ -1,0 +1,14 @@
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.Properties.Resources.resources
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.csproj.GenerateResource.cache
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.csproj.CoreCompileInputs.cache
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\bin\Debug\AutomotrizApp.exe.config
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\bin\Debug\AutomotrizApp.exe
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\bin\Debug\AutomotrizApp.pdb
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.exe
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.pdb
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmPrincipal.resources
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.csproj.AssemblyReference.cache
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmClientes.resources
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmFacturas.resources
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmAutomoviles.resources
+D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmOrdenesPedido.resources

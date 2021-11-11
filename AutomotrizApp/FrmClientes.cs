@@ -22,6 +22,12 @@ namespace AutomotrizApp
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            int check;
+            if (rbtnConCompra.Checked)
+                check = 0;
+            else
+                check = 1;
+
             SqlConnection cnn = new SqlConnection(servidor);
             SqlCommand cmd = new SqlCommand();
             DataTable tbl = new DataTable();
@@ -30,10 +36,13 @@ namespace AutomotrizApp
 
             cmd.Connection = cnn;
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "SP_CONSULTAR_FACTURAS";
+
+
+            cmd.CommandText = "SP_CONSULTAR_CLIENTES";
 
             cmd.Parameters.AddWithValue("@fecha_desde", dtpDesde.Value);
-            cmd.Parameters.AddWithValue("@fecha_hasta", dtpHasta.Value);
+            cmd.Parameters.AddWithValue("@fechas_hasta", dtpHasta.Value);
+            cmd.Parameters.AddWithValue("@check_aux", check);
 
             tbl.Load(cmd.ExecuteReader());
 
@@ -45,16 +54,19 @@ namespace AutomotrizApp
             {
                 dgvClientes.Rows.Add(new object[]
                 {
-                        tbl.Rows[i]["nro_factura"],
-                        tbl.Rows[i]["fecha"],
-                        tbl.Rows[i]["cliente"],
-                        tbl.Rows[i]["cantidad"],
-                        tbl.Rows[i]["descripcion"],
-                        tbl.Rows[i]["subtotal"],
-                        tbl.Rows[i]["descuento"],
-                        tbl.Rows[i]["total"],
+                        tbl.Rows[i]["id_cliente"],
+                        tbl.Rows[i]["Cliente"],
+                        tbl.Rows[i]["tipo_cliente"],
+                        tbl.Rows[i]["cuil_cuit"],
+                        tbl.Rows[i]["telefono"],
+                        tbl.Rows[i]["email"]
                 });
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvClientes.Rows.Clear();
         }
     }
 }

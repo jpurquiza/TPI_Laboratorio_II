@@ -31,8 +31,8 @@ namespace AutomotrizApp
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbtnConCompra = new System.Windows.Forms.RadioButton();
+            this.rbtnSinCompra = new System.Windows.Forms.RadioButton();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.lblFechaHasta = new System.Windows.Forms.Label();
@@ -40,6 +40,12 @@ namespace AutomotrizApp
             this.lblFechaDesde = new System.Windows.Forms.Label();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cuilcuit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
@@ -47,8 +53,8 @@ namespace AutomotrizApp
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rbtnConCompra);
+            this.groupBox1.Controls.Add(this.rbtnSinCompra);
             this.groupBox1.Controls.Add(this.btnLimpiar);
             this.groupBox1.Controls.Add(this.btnConsultar);
             this.groupBox1.Controls.Add(this.lblFechaHasta);
@@ -73,27 +79,27 @@ namespace AutomotrizApp
     "leccionadas";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // radioButton2
+            // rbtnConCompra
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(384, 72);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(87, 17);
-            this.radioButton2.TabIndex = 13;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Con compras";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbtnConCompra.AutoSize = true;
+            this.rbtnConCompra.Location = new System.Drawing.Point(384, 72);
+            this.rbtnConCompra.Name = "rbtnConCompra";
+            this.rbtnConCompra.Size = new System.Drawing.Size(87, 17);
+            this.rbtnConCompra.TabIndex = 13;
+            this.rbtnConCompra.TabStop = true;
+            this.rbtnConCompra.Text = "Con compras";
+            this.rbtnConCompra.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbtnSinCompra
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(520, 72);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(83, 17);
-            this.radioButton1.TabIndex = 12;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Sin compras";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbtnSinCompra.AutoSize = true;
+            this.rbtnSinCompra.Location = new System.Drawing.Point(520, 72);
+            this.rbtnSinCompra.Name = "rbtnSinCompra";
+            this.rbtnSinCompra.Size = new System.Drawing.Size(83, 17);
+            this.rbtnSinCompra.TabIndex = 12;
+            this.rbtnSinCompra.TabStop = true;
+            this.rbtnSinCompra.Text = "Sin compras";
+            this.rbtnSinCompra.UseVisualStyleBackColor = true;
             // 
             // btnLimpiar
             // 
@@ -103,6 +109,7 @@ namespace AutomotrizApp
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnConsultar
             // 
@@ -153,11 +160,54 @@ namespace AutomotrizApp
             this.dgvClientes.AllowUserToAddRows = false;
             this.dgvClientes.AllowUserToDeleteRows = false;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_cliente,
+            this.cliente,
+            this.tipo_cliente,
+            this.cuilcuit,
+            this.telefono,
+            this.email});
             this.dgvClientes.Location = new System.Drawing.Point(13, 168);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.Size = new System.Drawing.Size(775, 270);
             this.dgvClientes.TabIndex = 1;
+            // 
+            // id_cliente
+            // 
+            this.id_cliente.HeaderText = "ID";
+            this.id_cliente.Name = "id_cliente";
+            this.id_cliente.ReadOnly = true;
+            // 
+            // cliente
+            // 
+            this.cliente.HeaderText = "CLIENTE";
+            this.cliente.Name = "cliente";
+            this.cliente.ReadOnly = true;
+            // 
+            // tipo_cliente
+            // 
+            this.tipo_cliente.HeaderText = "TIPO CLIENTE";
+            this.tipo_cliente.Name = "tipo_cliente";
+            this.tipo_cliente.ReadOnly = true;
+            // 
+            // cuilcuit
+            // 
+            this.cuilcuit.HeaderText = "CUIL/CUIT";
+            this.cuilcuit.Name = "cuilcuit";
+            this.cuilcuit.ReadOnly = true;
+            // 
+            // telefono
+            // 
+            this.telefono.HeaderText = "TELEFONO";
+            this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "E-MAIL";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
             // 
             // FrmClientes
             // 
@@ -186,7 +236,13 @@ namespace AutomotrizApp
         private System.Windows.Forms.Label lblFechaDesde;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbtnConCompra;
+        private System.Windows.Forms.RadioButton rbtnSinCompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cuilcuit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
     }
 }

@@ -245,6 +245,36 @@ WHERE
 	AND (@id_modelo IS NULL OR MO.id_modelo = @id_modelo)
 END
 
+--SP CONSULTAR CLIENTES
+create proc SP_CONSULTAR_CLIENTES
+	@fecha_desde date,
+	@fechas_hasta date,
+	@check_aux bit
+AS
+BEGIN
+IF(@check_aux = 0)
+BEGIN
+	Select C.id_cliente, c.apellido+', '+c.nombre Cliente, tc.tipo_cliente, c.cuil_cuit,
+	c.telefono, c.email
+	from CLIENTES C JOIN FACTURAS F ON C.id_cliente = F.id_cliente
+	JOIN TIPOS_CLIENTE tc ON c.id_tipo_cliente = tc.id_tipo_cliente
+	where ((@fecha_desde is null and @fechas_hasta is  null)
+	OR (f.fecha between @fecha_desde and @fechas_hasta))
+	ORDER BY c.id_cliente
+END
+ELSE
+BEGIN
+	Select C.id_cliente, c.apellido+', '+c.nombre Cliente, tc.tipo_cliente, c.cuil_cuit,
+	c.telefono, c.email 
+	from CLIENTES C JOIN FACTURAS F ON C.id_cliente = F.id_cliente
+	JOIN TIPOS_CLIENTE tc on c.id_tipo_cliente = tc.id_tipo_cliente
+	where C.id_cliente NOT IN (select id_cliente from FACTURAS
+	where ((@fecha_desde is null and @fechas_hasta is  null)
+	OR (f.fecha between @fecha_desde and @fechas_hasta)))
+	ORDER BY c.id_cliente
+END
+END
+
 --SP CONSULTAR PRODUCTOS
 CREATE PROCEDURE SP_CONSULTAR_PRODUCTOS
 @descripcion varchar (100),

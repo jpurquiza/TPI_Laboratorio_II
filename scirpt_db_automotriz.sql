@@ -224,6 +224,27 @@ CREATE TABLE DETALLES_FACTURA(
 
 --PROCEDIMIENTOS ALMACENADOS
 
+--SP CONSULTAR AUTOPARTES
+ALTER PROCEDURE SP_CONSULTAR_AUTOPARTES
+@descripcion varchar (100),
+@id_modelo int
+AS 
+BEGIN
+SELECT 
+	P.id_producto,
+	P.descripcion,
+	MO.modelo,
+	precio_unitario,
+	stock,
+	stock_minimo
+FROM PRODUCTOS P
+	JOIN MODELOS MO ON MO.id_modelo = P.id_modelo
+WHERE 
+	id_tipo_producto = 2
+	AND (@descripcion IS NULL OR P.descripcion LIKE '%' + @descripcion + '%')
+	AND (@id_modelo IS NULL OR MO.id_modelo = @id_modelo)
+END
+
 --SP CONSULTAR PRODUCTOS
 CREATE PROCEDURE SP_CONSULTAR_PRODUCTOS
 @descripcion varchar (100),
@@ -354,6 +375,8 @@ FROM
 WHERE 
 	fecha_entrega BETWEEN GETDATE() AND DATEADD(WEEK, 1, GETDATE())
 END
+
+
 
 --INSERTAR REGISTROS
 

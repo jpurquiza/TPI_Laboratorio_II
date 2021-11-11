@@ -12,3 +12,18 @@ D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\Automotr
 D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmFacturas.resources
 D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmAutomoviles.resources
 D:\TUP\2 Cuatrimestre\Laboratorio de Computación II\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmOrdenesPedido.resources
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\bin\Debug\AutomotrizApp.exe.config
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\bin\Debug\AutomotrizApp.exe
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\bin\Debug\AutomotrizApp.pdb
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.csproj.AssemblyReference.cache
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmAutopartes.resources
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmClientes.resources
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmFacturas.resources
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmAutomoviles.resources
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmOrdenesPedido.resources
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.FrmPrincipal.resources
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.Properties.Resources.resources
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.csproj.GenerateResource.cache
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.csproj.CoreCompileInputs.cache
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.exe
+C:\Users\usuario\source\repos\TPI_Laboratorio_II\AutomotrizApp\obj\Debug\AutomotrizApp.pdb

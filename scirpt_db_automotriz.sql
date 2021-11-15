@@ -234,7 +234,7 @@ SELECT
 	P.id_producto,
 	P.descripcion,
 	MO.modelo,
-	precio_unitario,
+	'$ ' + CONVERT(VARCHAR(50),CAST(precio_unitario AS MONEY), 1) 'precio_unitario',
 	stock,
 	stock_minimo
 FROM PRODUCTOS P
@@ -276,7 +276,7 @@ END
 END
 
 --SP CONSULTAR PRODUCTOS
-CREATE PROCEDURE SP_CONSULTAR_PRODUCTOS
+ALTER PROCEDURE SP_CONSULTAR_PRODUCTOS
 @descripcion varchar (100),
 @id_modelo int,
 @id_segmento int,
@@ -292,7 +292,7 @@ SELECT
 	SE.segmento,
 	TC.tipo_combustible,
 	TT.tipo_transmision,
-	P.precio_unitario,
+	'$ ' + CONVERT(VARCHAR(50),CAST(P.precio_unitario AS MONEY), 1) 'precio_unitario',
 	P.stock
 FROM 
 	PRODUCTOS P
@@ -515,8 +515,205 @@ INSERT INTO DETALLES_FACTURA (nro_factura, id_producto, id_autoplan, precio, can
 INSERT INTO DETALLES_FACTURA (nro_factura, id_producto, id_autoplan, precio, cantidad, descuento) VALUES (12, 4, NULL, 2051400, 1, 10)
 
 --ORDENES DE PEDIDO
-INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 8, 1, '2021/11/01', '2021/11/22')
-INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 4, 1, '2021/11/02', '2021/11/23')
-INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 6, 1, '2021/11/03', '2021/11/24')
-INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (9, 2, 1, '2021/11/04', '2021/11/25')
-INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 10, 1, '2021/11/05', '2021/11/26')
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 5, 71, '2020/12/08', '2021/06/08');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (8, 1, 55, '2021/07/15', '2021/01/02');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (2, 1, 90, '2020/09/07', '2021/11/07');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (6, 3, 61, '2021/02/27', '2021/08/08');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 11, 68, '2021/05/06', '2021/04/07');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 9, 87, '2021/07/22', '2021/11/24');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 5, 71, '2021/02/11', '2021/01/08');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (2, 9, 9, '2020/10/04', '2021/10/05');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 10, 37, '2021/05/30', '2021/10/13');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 5, 17, '2020/11/04', '2020/11/21');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 2, 90, '2021/07/05', '2021/03/10');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (9, 6, 72, '2021/10/25', '2021/07/01');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (8, 7, 60, '2021/05/14', '2021/03/11');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 5, 65, '2020/11/05', '2021/08/07');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (9, 11, 45, '2021/09/13', '2021/02/26');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (4, 3, 47, '2021/01/02', '2021/03/03');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (4, 2, 73, '2021/10/23', '2021/05/04');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (9, 1, 17, '2021/01/10', '2021/03/16');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (2, 10, 25, '2020/11/18', '2021/07/05');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 8, 87, '2020/11/16', '2021/02/26');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (8, 9, 73, '2021/03/23', '2021/04/21');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (6, 5, 4, '2021/08/04', '2021/07/13');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (6, 3, 66, '2021/03/28', '2021/05/31');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (4, 11, 18, '2020/09/18', '2021/04/13');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 10, 23, '2020/11/22', '2021/08/03');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (1, 11, 52, '2021/03/22', '2021/08/27');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 3, 82, '2021/03/14', '2021/05/20');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 8, 7, '2021/02/22', '2021/08/18');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 9, 66, '2021/07/05', '2021/01/02');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (2, 2, 63, '2021/02/27', '2021/11/14');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 5, 25, '2021/03/02', '2020/11/10');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (2, 10, 92, '2021/05/17', '2021/07/19');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (9, 7, 42, '2020/11/22', '2021/11/19');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 7, 75, '2021/05/04', '2021/10/11');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 5, 26, '2021/10/07', '2021/10/04');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (9, 8, 99, '2020/10/15', '2021/03/30');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (6, 6, 82, '2020/09/20', '2021/02/21');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (6, 2, 44, '2020/09/21', '2021/11/16');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (8, 8, 64, '2021/04/20', '2021/04/20');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (8, 9, 69, '2021/01/24', '2021/06/15');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (6, 5, 28, '2020/10/02', '2021/08/20');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 11, 92, '2021/04/21', '2021/03/22');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 4, 48, '2021/08/27', '2021/10/14');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 3, 25, '2020/11/30', '2021/11/13');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 10, 34, '2021/11/06', '2021/10/21');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 4, 64, '2021/09/13', '2020/12/30');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 9, 92, '2021/02/07', '2020/12/13');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (1, 6, 59, '2021/07/05', '2021/11/21');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 1, 14, '2020/11/30', '2021/03/11');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 8, 93, '2021/08/03', '2021/11/03');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (2, 10, 8, '2021/06/21', '2021/11/26');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (2, 4, 61, '2021/10/27', '2020/12/16');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (1, 11, 82, '2021/05/06', '2021/07/06');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 10, 35, '2021/09/28', '2021/10/28');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 10, 31, '2020/10/28', '2021/08/11');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 8, 6, '2021/08/12', '2021/01/24');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (1, 6, 91, '2021/08/10', '2021/10/15');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (4, 12, 42, '2021/06/17', '2021/10/16');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (6, 4, 49, '2021/06/17', '2021/06/04');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 5, 38, '2020/12/04', '2021/01/18');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 4, 53, '2020/11/02', '2020/11/06');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (1, 9, 39, '2021/04/15', '2021/01/01');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (6, 9, 35, '2020/09/11', '2021/09/20');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 5, 2, '2021/08/28', '2021/11/13');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (9, 8, 37, '2020/09/11', '2021/04/01');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 9, 58, '2020/10/14', '2021/04/27');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 2, 91, '2020/11/25', '2020/12/12');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (6, 4, 100, '2021/06/27', '2021/07/30');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 8, 27, '2020/11/17', '2020/11/30');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 11, 92, '2021/04/06', '2021/08/01');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (2, 4, 50, '2021/09/11', '2021/09/01');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (2, 12, 12, '2021/08/22', '2021/06/30');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (8, 11, 97, '2021/09/03', '2021/02/28');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (2, 2, 38, '2021/01/27', '2021/03/27');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (4, 5, 75, '2021/05/17', '2020/11/12');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (1, 1, 36, '2021/02/19', '2020/11/20');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (8, 6, 53, '2020/10/21', '2021/09/21');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (1, 1, 83, '2021/01/26', '2020/12/22');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 1, 70, '2021/03/28', '2020/12/09');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 10, 90, '2020/12/01', '2021/10/15');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 12, 87, '2020/10/29', '2021/10/11');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (8, 12, 79, '2021/06/14', '2021/07/13');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (8, 12, 26, '2021/01/12', '2021/03/05');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (4, 6, 45, '2021/09/24', '2021/08/13');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 12, 13, '2021/06/15', '2021/01/20');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 5, 25, '2021/08/15', '2021/07/03');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (8, 4, 100, '2021/07/17', '2021/10/26');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (5, 2, 48, '2020/10/14', '2021/03/01');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 5, 32, '2021/01/02', '2021/08/25');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 10, 87, '2021/07/29', '2021/01/09');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 6, 94, '2021/08/02', '2021/04/18');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (4, 8, 84, '2021/03/23', '2021/04/03');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 9, 67, '2021/01/19', '2021/02/02');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (7, 7, 25, '2020/12/15', '2021/08/30');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 8, 1, '2020/09/23', '2021/01/15');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (3, 5, 34, '2020/09/30', '2021/01/25');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (8, 12, 80, '2021/03/08', '2021/08/19');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (4, 6, 65, '2020/12/13', '2021/10/18');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (1, 3, 43, '2021/01/19', '2021/06/10');
+INSERT INTO ORDENES_PEDIDO (id_producto, id_cliente, cantidad, fecha_pedido, fecha_entrega) VALUES (10, 5, 50, '2021/07/05', '2021/09/20');
+
+--PRODUCTOS
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BURLETES DE BAUL/PORTON', 1, 7, 409195, 8, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BURLETES DE PUERTAS', 1, 1, 316674, 29, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PASARRUEDAS PLASTICOS', 1, 6, 472604, 15, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PARRILLAS', 1, 4, 199025, 10, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'FUNDAS PARA ASIENTOS', 1, 5, 354891, 49, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PARAGOLPES', 1, 7, 475023, 41, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'VIDRIOS DE ESPEJO', 1, 1, 445696, 37, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'FUNDAS PARA ASIENTOS', 1, 9, 392504, 3, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ESPEJOS', 1, 9, 254984, 34, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'CASCOS DE OPTICA', 1, 8, 318100, 35, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'LENTES', 1, 5, 186160, 47, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ELECTROVENTILADORES', 1, 1, 422223, 3, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ESTRIBERAS', 1, 5, 204444, 1, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PARRILLAS', 1, 6, 195353, 27, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'VIDRIOS DE OPTICA', 1, 5, 106468, 47, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'LENTES', 1, 5, 115877, 34, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'VIDRIOS DE ESPEJO', 1, 8, 25831, 15, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PARAGOLPES', 1, 3, 100032, 9, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'SPOILER', 1, 2, 395465, 35, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'MOLDURAS PASARRUEDA', 1, 6, 193612, 15, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'FUNDAS PARA ASIENTOS', 1, 9, 206933, 44, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'FAROS AUXILIARES', 1, 3, 432052, 47, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'GRILLAS PARAG-PARANTE-CAPOT', 1, 1, 185949, 7, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'SPOILER', 1, 8, 224505, 26, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ELECTROVENTILADORES', 1, 3, 480557, 6, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BATERIAS', 1, 1, 71371, 14, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'TAZAS DE RUEDA', 1, 6, 142168, 4, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PARTES DE CARROCERIA', 1, 9, 129386, 13, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BURLETES DE BAUL/PORTON', 1, 4, 225945, 31, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'DEFLECTORES DE CAPOT', 1, 7, 79938, 11, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'RADIADORES', 1, 7, 105406, 11, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PARAGOLPES', 1, 6, 121889, 25, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ALMAS DE PARAGOLPE', 1, 8, 228475, 22, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'GRILLAS PARAG-PARANTE-CAPOT', 1, 4, 66265, 13, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'REPARACION DE ESPEJOS CON BASE', 1, 2, 213136, 30, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ESPEJOS', 1, 2, 180085, 48, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BIDON RECUPERADOR DE AGUA', 1, 7, 370577, 18, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BURLETES DE LUNETA Y PARABRISA', 1, 9, 462020, 27, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'CASCOS DE OPTICA', 1, 6, 434150, 16, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'MOLDURAS PASARRUEDA', 1, 2, 498137, 24, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'RADIADORES DE CALEFACCION', 1, 1, 429083, 38, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'RADIADORES DE CALEFACCION', 1, 1, 141434, 30, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'FUNDAS PARA ASIENTOS', 1, 9, 225173, 25, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PARAGOLPES', 1, 8, 193800, 1, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ELECTROVENTILADORES', 1, 3, 296223, 30, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BATERIAS', 1, 5, 446336, 39, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'RETENES DE OPTICA/SOPORTE AUX', 1, 3, 106132, 17, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ELECTROVENTILADORES', 1, 6, 160867, 31, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PARTES DE CARROCERIA', 1, 9, 499201, 9, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'VIDRIOS DE ESPEJO', 1, 1, 305618, 36, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ESPEJOS', 1, 1, 220437, 32, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'RADIADORES DE CALEFACCION', 1, 1, 429302, 50, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'RADIADORES DE CALEFACCION', 1, 7, 325033, 40, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'VIDRIOS DE OPTICA', 1, 7, 459117, 1, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'FAROS AUXILIARES', 1, 8, 270152, 19, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ELECTROVENTILADORES', 1, 8, 258961, 13, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ELECTROVENTILADORES', 1, 5, 260738, 38, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'REPARACION DE ESPEJOS CON BASE', 1, 2, 40962, 16, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'GRILLAS PARAG-PARANTE-CAPOT', 1, 9, 387723, 4, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ESTRIBERAS', 1, 9, 317047, 25, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ESTRIBERAS', 1, 5, 36471, 46, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ELECTROVENTILADORES', 1, 7, 214582, 20, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'GRILLAS PARAG-PARANTE-CAPOT', 1, 2, 351544, 12, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ALMAS DE PARAGOLPE', 1, 6, 268314, 40, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ESPEJOS', 1, 5, 377364, 35, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ESCOBILLAS Y BRAZOS', 1, 2, 227888, 11, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'SOPORTES DE PARAGOLPES', 1, 7, 294933, 30, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'REPARACION DE ESPEJOS CON BASE', 1, 9, 428001, 50, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PASARRUEDAS PLASTICOS', 1, 8, 325242, 38, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'XENON', 1, 9, 383470, 24, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'CACHA DE ESPEJO', 1, 3, 373152, 18, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'MOLDURAS PASARRUEDA', 1, 8, 228351, 43, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BURLETES DE BAUL/PORTON', 1, 9, 240243, 23, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'DEFLECTORES DE VENTANA', 1, 1, 427662, 10, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PASARRUEDAS PLASTICOS', 1, 9, 243902, 23, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BURLETES DE BAUL/PORTON', 1, 8, 30604, 4, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'AROS DE FARO', 1, 6, 48299, 39, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BATERIAS', 1, 5, 439526, 24, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'TAZAS DE RUEDA', 1, 5, 242124, 9, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'PARRILLAS', 1, 8, 292033, 14, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'SPOILER', 1, 7, 363161, 40, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'VIDRIOS DE ESPEJO', 1, 3, 20505, 29, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'RADIADORES DE CALEFACCION', 1, 9, 231405, 44, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ESTRIBERAS', 1, 2, 342500, 26, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'AROS DE FARO', 1, 9, 232583, 14, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ESTRIBO', 1, 4, 469414, 11, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ESTRIBERAS', 1, 8, 103811, 13, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BURLETES DE PUERTAS', 1, 2, 429214, 39, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ELECTROVENTILADORES', 1, 1, 299494, 31, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'FUNDAS PARA ASIENTOS', 1, 9, 390628, 32, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BURLETES DE BAUL/PORTON', 1, 4, 102953, 44, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'ALMAS DE PARAGOLPE', 1, 9, 259726, 46, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'LENTES', 1, 9, 367122, 36, 9);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'CASCOS DE OPTICA', 1, 5, 158611, 30, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'FUNDAS PARA ASIENTOS', 1, 3, 104846, 6, 5);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'DEFLECTORES DE CAPOT', 1, 2, 274993, 13, 8);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'BURLETES DE LUNETA Y PARABRISA', 1, 3, 158329, 17, 6);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'FAROS', 1, 2, 409160, 34, 10);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'FUNDAS PARA ASIENTOS', 1, 2, 306228, 45, 7);
+INSERT INTO PRODUCTOS (id_tipo_producto, descripcion, id_marca, id_modelo, precio, stock, stock_minimo) VALUES (2, 'FAROS AUXILIARES', 1, 2, 445396, 33, 5);

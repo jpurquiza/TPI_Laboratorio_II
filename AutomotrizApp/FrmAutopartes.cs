@@ -81,6 +81,7 @@ namespace AutomotrizApp
         private void Limpiar_Click(object sender, EventArgs e)
         {
             dgvAutopartes.Rows.Clear();
+            cboModelo.SelectedIndex = -1;
         }
     }
 }

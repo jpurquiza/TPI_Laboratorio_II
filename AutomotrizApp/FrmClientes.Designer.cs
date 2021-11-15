@@ -190,6 +190,7 @@ namespace AutomotrizApp
             this.tipo_cliente.HeaderText = "TIPO CLIENTE";
             this.tipo_cliente.Name = "tipo_cliente";
             this.tipo_cliente.ReadOnly = true;
+            this.tipo_cliente.Width = 120;
             // 
             // cuilcuit
             // 
@@ -205,6 +206,7 @@ namespace AutomotrizApp
             // 
             // email
             // 
+            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.email.HeaderText = "E-MAIL";
             this.email.Name = "email";
             this.email.ReadOnly = true;
@@ -216,6 +218,7 @@ namespace AutomotrizApp
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmClientes";
             this.Text = "FrmConsultarClientes";
             this.groupBox1.ResumeLayout(false);

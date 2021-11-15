@@ -31,9 +31,10 @@ namespace AutomotrizApp
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvOrdenes = new System.Windows.Forms.DataGridView();
-            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.dgvOrdenes = new System.Windows.Forms.DataGridView();
             this.id_orden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +42,6 @@ namespace AutomotrizApp
             this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnFiltrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,36 @@ namespace AutomotrizApp
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CRITERIOS DE BUSQUEDA";
             // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(503, 89);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(85, 25);
+            this.btnFiltrar.TabIndex = 2;
+            this.btnFiltrar.Text = "FILTRAR";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(707, 89);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 25);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "LIMPIAR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(606, 89);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(85, 25);
+            this.btnConsultar.TabIndex = 0;
+            this.btnConsultar.Text = "CONSULTAR";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
             // dgvOrdenes
             // 
             this.dgvOrdenes.AllowUserToAddRows = false;
@@ -73,7 +103,7 @@ namespace AutomotrizApp
             this.email});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -84,26 +114,6 @@ namespace AutomotrizApp
             this.dgvOrdenes.ReadOnly = true;
             this.dgvOrdenes.Size = new System.Drawing.Size(810, 251);
             this.dgvOrdenes.TabIndex = 1;
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Location = new System.Drawing.Point(606, 89);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(85, 25);
-            this.btnConsultar.TabIndex = 0;
-            this.btnConsultar.Text = "CONSULTAR";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(707, 89);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 25);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "LIMPIAR";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // id_orden
             // 
@@ -123,6 +133,7 @@ namespace AutomotrizApp
             this.descripcion.HeaderText = "DESCRIPCION";
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
+            this.descripcion.Width = 130;
             // 
             // cantidad
             // 
@@ -147,16 +158,7 @@ namespace AutomotrizApp
             this.email.HeaderText = "E-MAIL";
             this.email.Name = "email";
             this.email.ReadOnly = true;
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Location = new System.Drawing.Point(503, 89);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(85, 25);
-            this.btnFiltrar.TabIndex = 2;
-            this.btnFiltrar.Text = "FILTRAR";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            this.email.Width = 130;
             // 
             // FrmOrdenesPedido
             // 
@@ -180,6 +182,7 @@ namespace AutomotrizApp
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.DataGridView dgvOrdenes;
+        private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_orden;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_entrega;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
@@ -187,6 +190,5 @@ namespace AutomotrizApp
         private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.Button btnFiltrar;
     }
 }
